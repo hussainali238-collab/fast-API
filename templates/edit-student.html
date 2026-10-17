@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <h1>Edit Student</h1>
+
+    <form action="/update-student/{{ student.id }}" method="POST">
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name"
+                value="{{ student.name }}" required>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age"
+                value="{{ student.age }}" min="1" required>
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city"
+            value="{{ student.city }}" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email"
+                value="{{ student.email }}" required>
+
+        <label for="course">Course</label>
+        <input type="text" id="course" name="course"
+                value="{{ student.course }}" required>
+
+        <label for="bio">Bio</label>
+        <textarea id="bio" name="bio" required>{{ student.bio }}</textarea>
+
+        <button type="submit">Save Changes</button>
+
+        <a href="/student/{{ student.id }}">Cancel</a>
+
+    </form>
+
+</body>
+</html>

@@ -306,3 +306,84 @@ def search_student_page(request: Request, q: str = ""):
             "students": students
         }
     )
+
+
+# ----------------------------------
+# Edit Student
+# ----------------------------------
+
+@app.get("/edit-student/{student_id}")
+def edit_student_page(request: Request, student_id: int):
+
+    with closing(sqlite3.connect(DATABASE)) as conn:
+        conn.row_factory = sqlite3.Row
+
+        row = conn.execute(
+            "SELECT * FROM students WHERE id = ?",
+            (student_id,)
+        ).fetchone()
+
+        student = dict(row) if row else None
+
+    if student is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Student not found"
+        )
+
+    return templates.TemplateResponse(
+        request=request,
+        name="edit_student.html",
+        context={
+            "request": request,
+            "student": student
+        }
+    )
+
+
+# ----------------------------------
+# Update Student
+# ----------------------------------
+
+@app.post("/update-student/{student_id}")
+def update_student(
+    student_id: int,
+    name: str = Form(...),
+    age: int = Form(...),
+    city: str = Form(...),
+    email: str = Form(...),
+    course: str = Form(...),
+    bio: str = Form(...)
+):
+
+    with closing(sqlite3.connect(DATABASE)) as conn:
+        with conn:
+            cursor = conn.execute("""
+                UPDATE students
+                SET name = ?,
+                    age = ?,
+                    city = ?,
+                    email = ?,
+                    course = ?,
+                    bio = ?
+                WHERE id = ?
+            """, (
+                name,
+                age,
+                city,
+                email,
+                course,
+                bio,
+                student_id
+            ))
+
+            if cursor.rowcount == 0:
+                raise HTTPException(
+                    status_code=status.HTTP_404_NOT_FOUND,
+                    detail="Student not found"
+                )
+
+    return RedirectResponse(
+        url=f"/student/{student_id}",
+        status_code=status.HTTP_303_SEE_OTHER
+    )
