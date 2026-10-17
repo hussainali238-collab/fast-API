@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ student.name }}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="profile-card">
+
+            <h1>{{ student.name }}</h1>
+
+            <hr>
+
+            <p>
+                <strong>Age:</strong>
+                {{ student.age }}
+            </p>
+
+            <p>
+                <strong>City:</strong>
+                {{ student.city }}
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                {{ student.email }}
+            </p>
+
+            <p>
+                <strong>Course:</strong>
+                {{ student.course }}
+            </p>
+
+            <h3>About</h3>
+
+            <p>
+                {{ student.bio }}
+            </p>
+
+            <a class="back-button" href="/">
+                ← Back to Students
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

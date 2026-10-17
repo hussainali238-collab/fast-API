@@ -1,0 +1,519 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background : linear-gradient(to right, rgb(253, 253, 253),rgb(113, 113, 176));
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+    color:#0056b3
+}
+
+h1 {
+    text-align: center;
+    color: #0056b3;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.student-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.student-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.student-card h2 {
+    margin-top: 0;
+}
+
+.student-card a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.student-card a:hover {
+    color: #0056b3;
+}
+
+.student-card p {
+    color: #666;
+}
+
+.profile-card {
+    max-width: 600px;
+    margin: auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card h1 {
+    text-align: left;
+}
+
+.profile-card p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Student Form */
+/* 
+.profile-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-card label {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.profile-card input,
+.profile-card textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.profile-card textarea {
+    resize: vertical;
+}
+
+.profile-card button {
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.profile-card .back-button {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+} */
+
+/* add new student button style */
+.add-student-button {
+    display: inline-block;
+    margin: 15px 0 25px;
+    padding: 12px 22px;
+    background-color: #201961;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.add-student-button:hover {
+    background-color: #4A00C7;
+}
+
+
+
+
+/* ===== Add Student Form ===== */
+
+.container {
+width: 100%;
+max-width: 600px;
+margin: 40px auto;
+padding: 20px;
+box-sizing: border-box;
+}
+
+.profile-card {
+background-color: #FFFFFF;
+border: 2px solid #0056b3;
+border-radius: 12px;
+padding: 30px;
+box-sizing: border-box;
+box-shadow: 0 4px 15px rgba(0, 86, 179, 0.12);
+}
+
+/* Form Heading */
+
+.profile-card h1 {
+color: #0056b3;
+font-size: 28px;
+text-align: center;
+margin: 0 0 20px;
+}
+
+.profile-card hr {
+border: none;
+height: 2px;
+background-color: #0056b3;
+margin-bottom: 25px;
+}
+
+/* Form Layout */
+
+.profile-card form {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+/* Labels */
+
+.profile-card label {
+color: #0056b3;
+font-size: 15px;
+font-weight: 600;
+margin-top: 8px;
+}
+
+/* Input Fields and Textarea */
+
+.profile-card input,
+.profile-card textarea {
+width: 100%;
+padding: 12px 14px;
+border: 1.5px solid #0056b3;
+border-radius: 6px;
+background-color: #FFFFFF;
+color: #0056b3;
+font-size: 15px;
+font-family: Arial, sans-serif;
+box-sizing: border-box;
+outline: none;
+transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Active Input Effect */
+
+.profile-card input:focus,
+.profile-card textarea:focus {
+border: 2px solid #0056b3;
+box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.15);
+}
+
+/* Textarea */
+
+.profile-card textarea {
+resize: vertical;
+min-height: 100px;
+}
+
+/* Buttons and Links */
+
+.profile-card .back-button {
+display: block;
+width: 100%;
+padding: 12px 16px;
+margin-top: 15px;
+border: 2px solid #0056b3;
+border-radius: 6px;
+background-color: #0056b3;
+color: #FFFFFF;
+font-size: 16px;
+font-weight: 600;
+text-align: center;
+text-decoration: none;
+cursor: pointer;
+box-sizing: border-box;
+transition: background-color 0.2s, color 0.2s;
+}
+
+/* Hover Effect */
+
+.profile-card .back-button:hover {
+background-color: #FFFFFF;
+color: #0056b3;
+}
+
+/* Keyboard Accessibility */
+
+.profile-card .back-button:focus-visible {
+outline: 2px solid #0056b3;
+outline-offset: 3px;
+}
+
+/* Mobile Responsive Design */
+
+@media (max-width: 480px) {
+.container {
+margin: 15px auto;
+padding: 12px;
+}
+
+.profile-card {
+    padding: 20px;
+}
+
+.profile-card h1 {
+    font-size: 24px;
+}
+
+
+}
+/* ===== Add Student Form ===== */
+
+.container {
+width: 100%;
+max-width: 600px;
+margin: 40px auto;
+padding: 20px;
+box-sizing: border-box;
+}
+
+.profile-card {
+background-color: #FFFFFF;
+border: 2px solid #0056b3;
+border-radius: 12px;
+padding: 30px;
+box-sizing: border-box;
+box-shadow: 0 4px 15px rgba(0, 86, 179, 0.12);
+}
+
+/* Form Heading */
+
+.profile-card h1 {
+color: #0056b3;
+font-size: 28px;
+text-align: center;
+margin: 0 0 20px;
+}
+
+.profile-card hr {
+border: none;
+height: 2px;
+background-color: #0056b3;
+margin-bottom: 25px;
+}
+
+/* Form Layout */
+
+.profile-card form {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+/* Labels */
+
+.profile-card label {
+color: #0056b3;
+font-size: 15px;
+font-weight: 600;
+margin-top: 8px;
+}
+
+/* Input Fields and Textarea */
+
+.profile-card input,
+.profile-card textarea {
+width: 100%;
+padding: 12px 14px;
+border: 1.5px solid #0056b3;
+border-radius: 6px;
+background-color: #FFFFFF;
+color: #0056b3;
+font-size: 15px;
+font-family: Arial, sans-serif;
+box-sizing: border-box;
+outline: none;
+transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Active Input Effect */
+
+.profile-card input:focus,
+.profile-card textarea:focus {
+border: 2px solid #0056b3;
+box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.15);
+}
+
+/* Textarea */
+
+.profile-card textarea {
+resize: vertical;
+min-height: 100px;
+}
+
+/* Buttons and Links */
+
+.profile-card .back-button {
+display: block;
+width: 100%;
+padding: 12px 16px;
+margin-top: 15px;
+border: 2px solid #0056b3;
+border-radius: 6px;
+background-color: #0056b3;
+color: #FFFFFF;
+font-size: 16px;
+font-weight: 600;
+text-align: center;
+text-decoration: none;
+cursor: pointer;
+box-sizing: border-box;
+transition: background-color 0.2s, color 0.2s;
+}
+
+/* Hover Effect */
+
+.profile-card .back-button:hover {
+background-color: #FFFFFF;
+color: #0056b3;
+}
+
+/* Keyboard Accessibility */
+
+.profile-card .back-button:focus-visible {
+outline: 2px solid #0056b3;
+outline-offset: 3px;
+}
+
+/* Mobile Responsive Design */
+
+@media (max-width: 480px) {
+.container {
+margin: 15px auto;
+padding: 12px;
+}
+
+
+.profile-card {
+    padding: 20px;
+}
+
+.profile-card h1 {
+    font-size: 24px;
+}
+
+}
+
+
+/* ===== Search Student Page ===== */
+
+.search-container {
+    max-width: 700px;
+}
+
+.search-card {
+    width: 100%;
+}
+
+.search-card .subtitle {
+    margin-bottom: 25px;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.search-form label {
+    color: #0056b3;
+    font-weight: 600;
+}
+
+.search-form input {
+    width: 100%;
+    padding: 13px;
+    border: 1.5px solid #0056b3;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.search-form input:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.15);
+}
+
+.search-button {
+    padding: 13px;
+    background-color: #201961;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #4A00C7;
+}
+
+.search-results {
+    margin-top: 30px;
+}
+
+.search-results > h2 {
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+
+.search-results .student-card {
+    margin-bottom: 15px;
+    overflow-wrap: anywhere;
+}
+
+.search-results .back-button {
+    display: inline-block;
+    width: auto;
+}
+
+.no-results {
+    padding: 15px;
+    background-color: #f5f7ff;
+    color: #333;
+    border-radius: 6px;
+}
+
+@media (max-width: 480px) {
+    .search-card {
+        padding: 20px;
+    }
+
+    .search-card h1 {
+        font-size: 24px;
+    }
+}
+

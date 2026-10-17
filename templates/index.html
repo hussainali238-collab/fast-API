@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body
+    <div class="container">
+        <h1>Our Students</h1>
+        <p class="subtitle">
+            Click on a student's name to view their information.
+        </p>
+
+<a href="/add-student" class="add-student-button">
+    + Add New Student
+</a>
+
+<a href="/search-student" class="add-student-button">
+    Search Student
+</a>
+
+
+
+        <div class="student-list">
+            {% for student in students %}
+                <div class="student-card">
+                    <h2>
+                        <a href="/student/{{ student.id }}">
+                            {{ student.name }}
+                        </a>
+                    </h2>
+                    <p>{{ student.course }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

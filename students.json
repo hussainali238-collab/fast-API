@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "name": "Ali Khan",
+        "age": 20,
+        "city": "Lahore",
+        "email": "ali@example.com",
+        "course": "Computer Science",
+        "bio": "Ali is interested in web development and Python."
+    },
+    {
+        "id": 2,
+        "name": "Ahmed Raza",
+        "age": 21,
+        "city": "Karachi",
+        "email": "ahmed@example.com",
+        "course": "Software Engineering",
+        "bio": "Ahmed enjoys programming and learning new technologies."
+    },
+    {
+        "id": 3,
+        "name": "Usman Malik",
+        "age": 19,
+        "city": "Islamabad",
+        "email": "usman@example.com",
+        "course": "Computer Science",
+        "bio": "Usman likes solving programming problems."
+    },
+    {
+        "id": 4,
+        "name": "Hamza Shah",
+        "age": 22,
+        "city": "Multan",
+        "email": "hamza@example.com",
+        "course": "Information Technology",
+        "bio": "Hamza is interested in databases and backend development."
+    },
+    {
+        "id": 5,
+        "name": "Bilal Ahmed",
+        "age": 20,
+        "city": "Faisalabad",
+        "email": "bilal@example.com",
+        "course": "Computer Science",
+        "bio": "Bilal enjoys building small web applications."
+    },
+    {
+        "id": 6,
+        "name": "Hassan Ali",
+        "age": 21,
+        "city": "Rawalpindi",
+        "email": "hassan@example.com",
+        "course": "Software Engineering",
+        "bio": "Hassan likes learning about APIs and backend systems."
+    },
+    {
+        "id": 7,
+        "name": "Saad Ahmed",
+        "age": 19,
+        "city": "Lahore",
+        "email": "saad@example.com",
+        "course": "Information Technology",
+        "bio": "Saad is passionate about technology and computers."
+    },
+    {
+        "id": 8,
+        "name": "Usama Khan",
+        "age": 23,
+        "city": "Peshawar",
+        "email": "usama@example.com",
+        "course": "Computer Science",
+        "bio": "Usama enjoys Python programming and automation."
+    },
+    {
+        "id": 9,
+        "name": "Ayesha Noor",
+        "age": 20,
+        "city": "Lahore",
+        "email": "ayesha@example.com",
+        "course": "Software Engineering",
+        "bio": "Ayesha is interested in frontend and UI design."
+    },
+    {
+        "id": 10,
+        "name": "Hassan Ali",
+        "age": 18,
+        "city": "Lahore",
+        "email": "hafizhussainali238@gmail.com",
+        "course": "english",
+        "bio": "asdsdadsdada"
+    }
+]

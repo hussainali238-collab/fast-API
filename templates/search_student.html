@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search Student</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+
+    <div class="container search-container">
+
+        <div class="profile-card search-card">
+
+            <h1>Search Student</h1>
+
+            <p class="subtitle">
+                Find a student using their name or ID.
+            </p>
+
+            <form action="/search-student" method="get"
+                class="search-form">
+
+                <label for="q">Student Name or ID</label>
+
+                <input
+                    type="text"
+                    id="q"
+                    name="q"
+                    value="{{ q }}"
+                    placeholder="Enter student name or ID"
+                    required
+                >
+
+                <button type="submit" class="search-button">
+                    Search Student
+                </button>
+
+            </form>
+
+            {% if q %}
+                <div class="search-results">
+
+                    <h2>Search Results</h2>
+
+                    {% if students %}
+                        {% for student in students %}
+                            <div class="student-card">
+                                <h2>
+                                    <a href="/student/{{ student.id }}">
+                                        {{ student.name }}
+                                    </a>
+                                </h2>
+
+                                <p><strong>Student ID:</strong>
+                                    {{ student.id }}</p>
+
+                                <p><strong>Course:</strong>
+                                    {{ student.course }}</p>
+
+                                <p><strong>City:</strong>
+                                    {{ student.city }}</p>
+
+                                <a class="back-button"
+                                href="/student/{{ student.id }}">
+                                    View Profile
+                                </a>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="no-results">
+                            No student found. Try another name or ID.
+                        </p>
+                    {% endif %}
+
+                </div>
+            {% endif %}
+
+            <a href="/" class="back-button">
+                Back to Home
+            </a>
+
+        </div>
+    </div>
+
+</body>
+</html>
