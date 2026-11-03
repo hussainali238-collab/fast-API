@@ -308,10 +308,6 @@ def search_student_page(request: Request, q: str = ""):
     )
 
 
-# ----------------------------------
-# Edit Student
-# ----------------------------------
-
 @app.get("/edit-student/{student_id}")
 def edit_student_page(request: Request, student_id: int):
 
@@ -387,3 +383,26 @@ def update_student(
         url=f"/student/{student_id}",
         status_code=status.HTTP_303_SEE_OTHER
     )
+    
+
+
+@app.get("/search-student-by-course")
+def search_student_by_course(request: Request, course : str =""):
+        
+        students = []
+        with sqlite3.connect(DATABASE) as conn:
+            conn.row_factory = sqlite3.Row
+        if course:
+            students = conn.execute( "SELECT * FROM students WHERE course = ?",(course,)).fetchall()
+        else:
+            students = conn.execute("SELECT * FROM students"
+            ).fetchall()            
+        return templates.TemplateResponse(
+            request = request,
+            name = "search_student_by_course.html",
+            context = {
+                "request" : request,
+                "course" : course,
+                "students" : [dict(row) for row in students]
+            }
+        )
