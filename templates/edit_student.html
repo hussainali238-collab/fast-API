@@ -9,6 +9,8 @@
 </head>
 <body>
 <main class="container">
+              <div class="profile-card">
+
 <h1>Edit Student</h1>  
 <form action="/update-student/{{ student.id }}" method="post">
        <label for="name">Name</label>
@@ -28,8 +30,9 @@
               value="{{ student.course }}" required>  
        <label for="bio">Bio</label>
        <textarea id="bio" name="bio" required>{{ student.bio }}</textarea>  
-       <button type="submit">Save Changes</button>
+       <button type="submit" class="back-button">Save Changes</button>
               </form>
+              </div>
        </main>
 </body>
 </html>
