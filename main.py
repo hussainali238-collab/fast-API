@@ -393,16 +393,21 @@ def search_student_by_course(request: Request, course : str =""):
         with sqlite3.connect(DATABASE) as conn:
             conn.row_factory = sqlite3.Row
         if course:
-            students = conn.execute( "SELECT * FROM students WHERE course = ?",(course,)).fetchall()
+            rows = conn.execute( "SELECT * FROM students WHERE course = ?",(course,)).fetchall()
         else:
-            students = conn.execute("SELECT * FROM students"
+            rows = conn.execute("SELECT * FROM students"
             ).fetchall()            
+            
+        students : dict = [dict(row) for row in rows]
+
+            
+            
         return templates.TemplateResponse(
             request = request,
-            name = "search_student_by_course.html",
+            name = "index.html",
             context = {
                 "request" : request,
                 "course" : course,
-                "students" : [dict(row) for row in students]
+                "students" : students
             }
         )

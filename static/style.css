@@ -533,3 +533,31 @@ padding: 12px;
 .edit-button:hover {
     background-color: #003d80;
 }
+
+
+
+
+
+
+.course-filter-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 20px 0;
+    color: #0056b3;
+}
+
+.course-filter-form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.course-filter-form button {
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
