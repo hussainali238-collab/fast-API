@@ -1,49 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Students</title>
-    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
-</head>
-<body>
-    <div class="container">
-        <h1>Our Students</h1>
-        <p class="subtitle">
-            Click on a student's name to view their information.
-        </p>
-    
-<a href="/add-student" class="add-student-button">
-    Add New Student
-</a>
-
-<a href="/search-student" class="add-student-button">
-    Search Student
-</a>
-<form action="/search-student-by-course" method="get" class = "course-filter-form">
-    <select name="course" required  >
-        <option value="">Select a course</option>
-        <option value="Software Engineering">Software Engineering</option>
-        <option value="Computer Science">Computer Science</option>
-        <option value="Information Technology">Information Technology</option>
-
-        <option value="English">English</option>
-    </select>
-    <button type="submit">Search</button>
-</form>
-
-<div class="student-list">
-    {% for student in students %}
-        <div class="student-card">
-            <h2>
-                <a href="/student/{{ student.id }}">
-                            {{ student.name }}
-                        </a>
-                    </h2>
-                    <p>{{ student.course }}</p>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-</body>
-</html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Admin Dashboard</title><link rel="stylesheet" href="{{ url_for('static', path='style.css') }}"></head>
+<body><main class="container"><section class="profile-card"><div class="portal-header"><div><h1>Admin Dashboard</h1><p class="subtitle">Manage student records</p></div><form action="/logout" method="post"><button type="submit">Log Out</button></form></div>
+<p><strong>Total students:</strong> {{ students|length }} &nbsp; <strong>Registered accounts:</strong> {{ total_users }}</p>
+<a href="/add-student" class="add-student-button">Add New Student</a> <a href="/search-student" class="add-student-button">Search Student</a>
+<form action="/search-student-by-course" method="get" class="course-filter-form"><select name="course"><option value="">All courses</option><option>Software Engineering</option><option>Computer Science</option><option>Information Technology</option><option>English</option></select><button type="submit">Filter</button></form>
+<div class="student-list">{% for student in students %}<article class="student-card"><h2><a href="/student/{{ student.id }}">{{ student.name }}</a></h2><p>{{ student.course }} · {{ student.email }}</p><a href="/edit-student/{{ student.id }}">Edit</a> <form action="/delete-student/{{ student.id }}" method="post" onsubmit="return confirm('Delete this student record?')"><button type="submit">Delete</button></form></article>{% else %}<p>No students found.</p>{% endfor %}</div></section></main></body></html>
