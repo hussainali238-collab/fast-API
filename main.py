@@ -3,6 +3,8 @@ import sqlite3
 from contextlib import closing
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 from fastapi import FastAPI, Form, HTTPException, Request, status
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
@@ -14,6 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent
 DATABASE = BASE_DIR / "students.db"
 STATIC_DIR = BASE_DIR / "static"
 TEMPLATES_DIR = BASE_DIR / "templates"
+load_dotenv(BASE_DIR / ".env")
 
 app = FastAPI(title="Student Management Portal")
 app.add_middleware(
