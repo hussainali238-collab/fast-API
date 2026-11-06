@@ -1,59 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>{{ student.name }}</title>
-
-    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
-</head>
-
-<body>
-
-    <div class="container">
-
-        <div class="profile-card">
-
-            <h1>{{ student.name }}</h1>
-        <a href="/edit-student/{{ student.id }}" class="edit-button">
-            <button type="button"> Edit Student </button>
-        </a>
-            <hr>
-
-            <p>
-                <strong>Age:</strong>
-                {{ student.age }}
-            </p>
-
-            <p>
-                <strong>City:</strong>
-                {{ student.city }}
-            </p>
-
-            <p>
-                <strong>Email:</strong>
-                {{ student.email }}
-            </p>
-
-            <p>
-                <strong>Course:</strong>
-                {{ student.course }}
-            </p>
-
-            <h3>About</h3>
-
-            <p>
-                {{ student.bio }}
-            </p>
-
-            <a class="back-button" href="/">
-                ← Back to Students
-            </a>
-
-        </div>
-
-    </div>
-
-</body>
-</html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>{{ student.name }}</title><link rel="stylesheet" href="{{ url_for('static', path='style.css') }}"></head>
+<body><main class="container"><section class="profile-card"><div class="portal-header"><h1>{{ student.name }}</h1><form action="/logout" method="post"><button type="submit">Log Out</button></form></div><hr>
+<p><strong>Student ID:</strong> {{ student.id }}</p><p><strong>Age:</strong> {{ student.age }}</p><p><strong>City:</strong> {{ student.city }}</p><p><strong>Email:</strong> {{ student.email }}</p><p><strong>Course:</strong> {{ student.course }}</p><h3>About</h3><p>{{ student.bio }}</p>
+{% if user.role == "admin" %}<a class="back-button" href="/edit-student/{{ student.id }}">Edit Student</a><a class="back-button" href="/admin">Back to Dashboard</a>{% else %}<a class="back-button" href="/my-profile/edit">Edit My Profile</a>{% endif %}
+</section></main></body></html>

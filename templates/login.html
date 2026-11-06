@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Login</title><link rel="stylesheet" href="{{ url_for('static', path='style.css') }}"></head>
+<body><main class="container"><section class="profile-card auth-card">
+<h1>Student Portal</h1><p class="subtitle">Sign in to continue</p>
+{% if error %}<p class="auth-error">{{ error }}</p>{% endif %}
+<form action="/login" method="post">
+<label for="email">Email</label><input id="email" type="email" name="email" required autocomplete="username">
+<label for="password">Password</label><input id="password" type="password" name="password" required autocomplete="current-password">
+<button class="back-button" type="submit">Log In</button></form>
+<p>New student? <a href="/register">Create an account</a></p></section></main></body></html>
